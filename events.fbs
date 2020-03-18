@@ -1,0 +1,86 @@
+namespace Serializer;
+
+// *** DONT CHANGE THE ORDER OF THE VALUES!! ***
+enum Action:short {
+    CSS_RULE_SNAPSHOT,
+    FOCUS,
+    FOCUS_IN,
+    FOCUS_OUT,
+
+    MOUSE_CLICK,
+    MOUSE_OVER,
+    MOUSE_POSITION,
+
+    MUTATION_EVENT,
+
+    VIDEO_PAUSE,
+    VIDEO_PLAY,
+    VIDEO_TIME_UPDATE,
+    VIDEO_VOLUME_CHANGE,
+
+    INPUT,
+    INPUT_PROGRAMMATIC_CHANGE,
+    SCROLL,
+    SELECTION,
+    URL_CHANGED,
+    VISIBILITY,
+    WINDOW_CLOSE,
+    VIEWPORT_CHANGED,
+    FINISHED_SNAPSHOT,
+
+    DOM_SNAPSHOT,
+    PAGE_SNAPSHOT_EVENTS,
+
+    CANVAS_UPDATE,
+
+    ERROR,
+    ERROR_OUR,
+
+    IDENTIFY,
+
+    SET_USER_INFO,
+
+    TOUCH_CANCEL,
+    TOUCH_END,
+    TOUCH_MOVE,
+    TOUCH_START,
+
+    PRESS,
+    DOUBLE_TAP,
+    SWIPE_RIGHT,
+    SWIPE_LEFT,
+    SWIPE_DOWN,
+    SWIPE_UP,
+
+    IDLE_TIME,
+    CUSTOM_EVENT
+}
+
+table StringList {
+  values:[string];
+}
+
+table MutationData {
+  removed:[int];
+  attributes:[StringList];
+  text:[StringList];
+}
+
+//=========================================EVENTS DATA==================================================================
+
+union DataType {
+  StringList,
+  MutationData
+}
+
+table Event {
+  action:Action;
+  data:DataType(required);
+  shouldCensor:bool=false;
+  windowId:string(required);
+  sequence:long;
+  sequenceIndex:int;
+  parentWindowId:string;
+}
+
+root_type Event;
