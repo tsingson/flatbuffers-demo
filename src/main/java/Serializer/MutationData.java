@@ -21,16 +21,16 @@ public final class MutationData extends Table {
   public IntVector removedVector(IntVector obj) { int o = __offset(4); return o != 0 ? obj.__assign(__vector(o), bb) : null; }
   public ByteBuffer removedAsByteBuffer() { return __vector_as_bytebuffer(4, 4); }
   public ByteBuffer removedInByteBuffer(ByteBuffer _bb) { return __vector_in_bytebuffer(_bb, 4, 4); }
-  public StringList attributes(int j) { return attributes(new StringList(), j); }
-  public StringList attributes(StringList obj, int j) { int o = __offset(6); return o != 0 ? obj.__assign(__indirect(__vector(o) + j * 4), bb) : null; }
+  public Serializer.StringList attributes(int j) { return attributes(new Serializer.StringList(), j); }
+  public Serializer.StringList attributes(Serializer.StringList obj, int j) { int o = __offset(6); return o != 0 ? obj.__assign(__indirect(__vector(o) + j * 4), bb) : null; }
   public int attributesLength() { int o = __offset(6); return o != 0 ? __vector_len(o) : 0; }
-  public StringList.Vector attributesVector() { return attributesVector(new StringList.Vector()); }
-  public StringList.Vector attributesVector(StringList.Vector obj) { int o = __offset(6); return o != 0 ? obj.__assign(__vector(o), 4, bb) : null; }
-  public StringList text(int j) { return text(new StringList(), j); }
-  public StringList text(StringList obj, int j) { int o = __offset(8); return o != 0 ? obj.__assign(__indirect(__vector(o) + j * 4), bb) : null; }
+  public Serializer.StringList.Vector attributesVector() { return attributesVector(new Serializer.StringList.Vector()); }
+  public Serializer.StringList.Vector attributesVector(Serializer.StringList.Vector obj) { int o = __offset(6); return o != 0 ? obj.__assign(__vector(o), 4, bb) : null; }
+  public Serializer.StringList text(int j) { return text(new Serializer.StringList(), j); }
+  public Serializer.StringList text(Serializer.StringList obj, int j) { int o = __offset(8); return o != 0 ? obj.__assign(__indirect(__vector(o) + j * 4), bb) : null; }
   public int textLength() { int o = __offset(8); return o != 0 ? __vector_len(o) : 0; }
-  public StringList.Vector textVector() { return textVector(new StringList.Vector()); }
-  public StringList.Vector textVector(StringList.Vector obj) { int o = __offset(8); return o != 0 ? obj.__assign(__vector(o), 4, bb) : null; }
+  public Serializer.StringList.Vector textVector() { return textVector(new Serializer.StringList.Vector()); }
+  public Serializer.StringList.Vector textVector(Serializer.StringList.Vector obj) { int o = __offset(8); return o != 0 ? obj.__assign(__vector(o), 4, bb) : null; }
 
   public static int createMutationData(FlatBufferBuilder builder,
       int removedOffset,
